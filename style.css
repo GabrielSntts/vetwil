@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.1; /* 1.6 */
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.header {
+  background-color: green;
+  color: white;
+  padding: 1rem 0;
+}
+
+.header .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.nav a:hover {
+  opacity: 0.85;
+}
+
+.hero {
+  background: url("https://placehold.co/1920x1080") center/cover no-repeat;
+  color: black;
+  padding: 22rem 0;
+  text-align: center;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.section {
+  padding: 3rem 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.cards,
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.project-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.about-image {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.location-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+  align-items: center;
+}
+
+.location-info {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 500px;
+}
+
+.map-placeholder img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hours {
+  list-style: none;
+  padding-left: 0;
+}
+
+.hours li {
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.hours li::before {
+  /* content: "🐾"; */
+  position: absolute;
+  left: 0;
+  color: #f1f1f1;
+}
+
+.footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* Parte relacionada a responsividade e adequação a aparelho como celulares e tablets que abrirem o site pelo navegador */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: green;
+    flex-direction: column;
+    width: 200px;
+    padding: 1rem;
+    border-radius: 8px;
+    display: none;
+  }
+
+  .nav.show {
+    display: flex;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav a {
+    padding: 0.5rem 0;
+    text-align: center;
+  }
+
+  .cards,
+  .projects,
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+
+  .location-wrepper {
+    align-items: flex-start;
+  }
+
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+}
