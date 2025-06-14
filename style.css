@@ -7,8 +7,8 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.1; /* 1.6 */
-  background-color: #f1f1f1;
-  color: #333;
+  background-color: #cac7c7; /* #b4b0b0 */
+  color: #000000; /* #333 */
 }
 
 .container {
@@ -18,13 +18,31 @@ body {
 }
 
 .header {
-  background-color: green;
-  color: white;
+  background-color: #203b82;
+  color: #f1f1f1;
   padding: 1rem 0;
 }
 
-.header .logo {
-  font-size: 1.8rem;
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  /* justify-content: space-between; */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -38,8 +56,12 @@ body {
 }
 
 .nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
+  flex: none;
 }
 
 .nav ul {
@@ -62,15 +84,31 @@ body {
 }
 
 .hero {
-  background: url("https://placehold.co/1920x1080") center/cover no-repeat;
-  color: black;
+  position: relative;
+  background: url("./img/cachorronocampo.jpg") center/cover no-repeat;
+  color: rgb(255, 255, 255); /* rgb(230, 224, 224) */
   padding: 22rem 0;
   text-align: center;
+  z-index: 1;
+}
+/* Parte relacionada ao sombreamento que tem na parte de baixo do background do cachorro */
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%; /* ajustar */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #181717 100%);
+  z-index: 2;
 }
 
 .hero-content h2 {
-  font-size: 2.5rem;
+  position: relative;
+  z-index: 3;
+  /* font-size: 2.5rem;
   margin-bottom: 1rem;
+  */
 }
 
 .section {
@@ -169,29 +207,88 @@ body {
   color: #f1f1f1;
 }
 
-.footer {
-  background: #333;
-  color: white;
+footer {
+  background-color: #111622;
+  color: #cbd5e0;
+  padding: 3rem 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.footer-column h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  color: #cbd5e0;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #ffffff;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-icons svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #cbd5e0;
+  transition: color 0.3s ease;
+}
+
+.social-icons svg:hover {
+  color: #ffffff;
+}
+
+.copyright {
+  margin-top: 1rem;
   text-align: center;
-  padding: 1rem 0;
+  color: #f1f1f1;
+  border-top: 1px solid #2d3748;
+  padding-top: 1.5rem;
 }
 
 /* Parte relacionada a responsividade e adequação a aparelho como celulares e tablets que abrirem o site pelo navegador */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
+    z-index: 1001;
+    position: relative;
   }
 
   .nav {
     position: absolute;
     top: 60px;
     right: 20px;
-    background: green;
+    background: #1a3781; /* #152e6d */
     flex-direction: column;
     width: 200px;
     padding: 1rem;
     border-radius: 8px;
     display: none;
+
+    z-index: 1000;
   }
 
   .nav.show {
@@ -221,4 +318,16 @@ body {
   .hero-content h2 {
     font-size: 2rem;
   }
+}
+
+.hidden {
+  /* essa parte faz os elementos aparecerem lentamente (como codado no javascript) */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
 }
