@@ -187,6 +187,49 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.resultado-card {
+  background-color: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem 2rem;
+  max-width: 800px;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.resultado-card h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #000000;
+}
+
+.descricao {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #000000;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+.resultado-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.8rem;
+  background-color: #203b82;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.resultado-btn:hover {
+  background-color: #3266e9;
+  transform: scale(1.03);
+}
+
 .location-wrapper {
   display: flex;
   flex-direction: column;
@@ -224,6 +267,16 @@ body {
   position: absolute;
   left: 0;
   color: #f1f1f1;
+}
+
+.map-placeholder iframe {
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 footer {
@@ -338,6 +391,11 @@ footer {
 
   .hero-content h2 {
     font-size: 2rem;
+  }
+
+  .map-placeholder iframe {
+    width: 100%;
+    height: 300px;
   }
 }
 
